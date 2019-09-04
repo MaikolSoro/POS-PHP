@@ -4,7 +4,7 @@
     
     <h1>
       
-      Administrar categorias
+      Administrar categorías
     
     </h1>
 
@@ -16,7 +16,6 @@
     
     </ol>
 
-
   </section>
 
   <section class="content">
@@ -27,7 +26,7 @@
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCategoria">
           
-          Agregar categoria
+          Agregar categoría
 
         </button>
 
@@ -35,7 +34,7 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas">
+       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
          
         <thead>
          
@@ -50,60 +49,39 @@
         </thead>
 
         <tbody>
-          
-          <tr>
-            <td>1</td>
-            <td>EQUIPOS ELECTROMECÁNICOS</td>
 
-            <td>
+        <?php
 
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+          $item = null;
+          $valor = null;
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+          $categorias = ControladorCategorias::ctrMostrarCategorias($item, $valor);
 
-              </div>  
-
-            </td>
-
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>EQUIPOS ELECTROMECÁNICOS</td>
+          foreach ($categorias as $key => $value) {
            
-            <td>
+            echo ' <tr>
 
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <td>'.($key+1).'</td>
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    <td class="text-uppercase">'.$value["categoria"].'</td>
 
-              </div>  
+                    <td>
 
-            </td>
+                      <div class="btn-group">
+                          
+                        <button class="btn btn-warning btnEditarCategoria" idCategoria="'.$value["id"].'" data-toggle="modal" data-target="#modalEditarCategoria"><i class="fa fa-pencil"></i></button>
 
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>EQUIPOS ELECTROMECÁNICOS</td>
-           
-            <td>
+                        <button class="btn btn-danger btnEliminarCategoria" idCategoria="'.$value["id"].'"><i class="fa fa-times"></i></button>
 
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                      </div>  
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    </td>
 
-              </div>  
+                  </tr>';
+          }
 
-            </td>
+        ?>
 
-          </tr>
-
-         
         </tbody>
 
        </table>
@@ -117,7 +95,7 @@
 </div>
 
 <!--=====================================
-MODAL AGREGAR Categoría
+MODAL AGREGAR CATEGORÍA
 ======================================-->
 
 <div id="modalAgregarCategoria" class="modal fade" role="dialog">
@@ -161,10 +139,11 @@ MODAL AGREGAR Categoría
               </div>
 
             </div>
+  
+          </div>
 
         </div>
 
-        </div>
         <!--=====================================
         PIE DEL MODAL
         ======================================-->
@@ -173,13 +152,15 @@ MODAL AGREGAR Categoría
 
           <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
 
-          <button type="submit" class="btn btn-primary">Guardar Categoria</button>
+          <button type="submit" class="btn btn-primary">Guardar categoría</button>
 
         </div>
 
         <?php
+
           $crearCategoria = new ControladorCategorias();
-          $crearCategoria->ctrCrearCategoria();
+          $crearCategoria -> ctrCrearCategoria();
+
         ?>
 
       </form>
@@ -189,5 +170,91 @@ MODAL AGREGAR Categoría
   </div>
 
 </div>
+
+<!--=====================================
+MODAL EDITAR CATEGORÍA
+======================================-->
+
+<div id="modalEditarCategoria" class="modal fade" role="dialog">
+  
+  <div class="modal-dialog">
+
+    <div class="modal-content">
+
+      <form role="form" method="post">
+
+        <!--=====================================
+        CABEZA DEL MODAL
+        ======================================-->
+
+        <div class="modal-header" style="background:#3c8dbc; color:white">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Editar categoría</h4>
+
+        </div>
+
+        <!--=====================================
+        CUERPO DEL MODAL
+        ======================================-->
+
+        <div class="modal-body">
+
+          <div class="box-body">
+
+            <!-- ENTRADA PARA EL NOMBRE -->
+            
+            <div class="form-group">
+              
+              <div class="input-group">
+              
+                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+
+                <input type="text" class="form-control input-lg" name="editarCategoria" id="editarCategoria" required>
+
+                 <input type="hidden"  name="idCategoria" id="idCategoria" required>
+
+              </div>
+
+            </div>
+  
+          </div>
+
+        </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+
+        </div>
+
+      <?php
+
+          $editarCategoria = new ControladorCategorias();
+          $editarCategoria -> ctrEditarCategoria();
+
+        ?> 
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<?php
+
+  $borrarCategoria = new ControladorCategorias();
+  $borrarCategoria -> ctrBorrarCategoria();
+
+?>
 
 
