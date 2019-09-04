@@ -11,7 +11,7 @@ class AjaxUsuarios{
 
 	public $idUsuario;
 
-	public function ajaxEditarUsuario(){
+	static 	public  function ajaxEditarUsuario(){
 
 		$item = "id";
 		$valor = $this->idUsuario;
@@ -30,7 +30,7 @@ class AjaxUsuarios{
 	public $activarId;
 
 
-	public function ajaxActivarUsuario(){
+	static 	public  function ajaxActivarUsuario(){
 
 		$tabla = "usuarios";
 
@@ -50,7 +50,7 @@ class AjaxUsuarios{
 
 	public $validarUsuario;
 
-	public function ajaxValidarUsuario(){
+	static 	public function ajaxValidarUsuario(){
 
 		$item = "usuario";
 		$valor = $this->validarUsuario;
