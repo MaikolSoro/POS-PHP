@@ -85,7 +85,7 @@ class ControladorCategorias{
 	EDITAR CATEGORIAS
 	=============================================*/
 
-	static public function ctrEditarCategoria($item, $valor){
+	static public function ctrEditarCategoria(){
 
 		if(isset($_POST["editarCategoria"])){
 
