@@ -5,7 +5,6 @@ class ControladorUsuarios{
 	/*=============================================
 	INGRESO DE USUARIO
 	=============================================*/
-
 	static public function ctrIngresoUsuario(){
 
 		if(isset($_POST["ingUsuario"])){
@@ -37,7 +36,7 @@ class ControladorUsuarios{
 						REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
 						=============================================*/
 
-						date_default_timezone_set('America/Bogota');
+						date_default_timezone_set('America/Costa Rica');
 
 						$fecha = date('Y-m-d');
 						$hora = date('H:i:s');
@@ -80,7 +79,6 @@ class ControladorUsuarios{
 		}
 
 	}
-
 	/*=============================================
 	REGISTRO DE USUARIO
 	=============================================*/
