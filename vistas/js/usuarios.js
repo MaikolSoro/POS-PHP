@@ -134,7 +134,7 @@ $(document).on("click", ".btnActivar", function(){
 
   	if(estadoUsuario == 0){
 
-  		$(this).removeClass('btn-success'); 
+  		$(this).removeClass('btn-success');
   		$(this).addClass('btn-danger');
   		$(this).html('Desactivado');
   		$(this).attr('estadoUsuario',1);
@@ -175,7 +175,7 @@ $("#nuevoUsuario").change(function(){
 	    	
 	    	if(respuesta){
 
-	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en el sistema</div>');
+	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
 
 	    		$("#nuevoUsuario").val("");
 
