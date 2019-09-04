@@ -36,7 +36,7 @@ class ControladorUsuarios{
 						REGISTRAR FECHA PARA SABER EL ÚLTIMO LOGIN
 						=============================================*/
 
-						date_default_timezone_set('America/Costa Rica');
+						date_default_timezone_set('America/Costa_Rica');
 
 						$fecha = date('Y-m-d');
 						$hora = date('H:i:s');
