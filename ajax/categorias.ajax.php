@@ -21,6 +21,23 @@ class AjaxCategorias{
 		echo json_encode($respuesta);
 
 	}
+	/*=============================================
+	VALIDAR NO REPETIR CATEGORIA
+	=============================================*/	
+
+	public $validarCategoria;
+
+	public function ajaxValidarCategoria(){
+
+		$item = "categoria";
+		$valor = $this->validarCategoria;
+
+		$respuesta = ControladorCategorias::ctrMostrarCategoria($item, $valor);
+
+		echo json_encode($respuesta);
+
+	}
+
 }
 
 /*=============================================
@@ -31,4 +48,20 @@ if(isset($_POST["idCategoria"])){
 	$categoria = new AjaxCategorias();
 	$categoria -> idCategoria = $_POST["idCategoria"];
 	$categoria -> ajaxEditarCategoria();
+
+}
+
+
+
+	
+/*=============================================
+VALIDAR NO REPETIR CATEGORIA
+=============================================*/
+
+if(isset( $_POST["validarCategoria"])){
+
+	$valCategoria = new AjaxCategorias();
+	$valCategoria -> validarCategoria = $_POST["validarCategoria"];
+	$valCategoria -> ajaxValidarCategoria();
+
 }

@@ -175,7 +175,7 @@ $("#nuevoUsuario").change(function(){
 	    	
 	    	if(respuesta){
 
-	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en la base de datos</div>');
+	    		$("#nuevoUsuario").parent().after('<div class="alert alert-warning">Este usuario ya existe en el sistema</div>');
 
 	    		$("#nuevoUsuario").val("");
 

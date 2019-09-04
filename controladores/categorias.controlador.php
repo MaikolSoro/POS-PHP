@@ -2,25 +2,24 @@
 
 class ControladorCategorias{
 
-   /*=============================================
+	/*=============================================
 	CREAR CATEGORIAS
 	=============================================*/
 
-    static public function ctrCrearCategoria(){
+	static public function ctrCrearCategoria(){
 
+		if(isset($_POST["nuevaCategoria"])){
 
-        if(isset($_POST["nuevaCategoria"])){
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
 
+				$tabla = "categorias";
 
-            if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevaCategoria"])){
-              
-                $tabla = "categorias";
-                $datos = $_POST["nuevaCategoria"];
-                $respuesta = ModeloCategorias::mdlIngresarCategoria($tabla,$datos);
+				$datos = $_POST["nuevaCategoria"];
 
-                if($respuesta == "ok"){
+				$respuesta = ModeloCategorias::mdlIngresarCategoria($tabla, $datos);
 
-                    
+				if($respuesta == "ok"){
+
 					echo'<script>
 
 					swal({
@@ -31,44 +30,42 @@ class ControladorCategorias{
 						  }).then(function(result){
 									if (result.value) {
 
-									window.location = "usuarios";
+									window.location = "categorias";
 
 									}
 								})
 
 					</script>';
-                }
+
+				}
 
 
+			}else{
 
-            }else{
+				echo'<script>
 
-                echo '<script>
+					swal({
+						  type: "error",
+						  title: "¡La categoría no puede ir vacía o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
 
-                swal({
+							window.location = "categorias";
 
-                    type: "error",
-                    title: "¡El usuario no puede ir vacío o llevar caracteres especiales!",
-                    showConfirmButton: true,
-                    confirmButtonText: "Cerrar"
+							}
+						})
 
-                }).then(function(result){
+			  	</script>';
 
-                    if(result.value){
-                    
-                        window.location = "usuarios";
+			}
 
-                    }
+		}
 
-                });
-            
+	}
 
-            </script>';
-            }
-        }
-    }
-
-    	/*=============================================
+	/*=============================================
 	MOSTRAR CATEGORIAS
 	=============================================*/
 
@@ -81,8 +78,9 @@ class ControladorCategorias{
 		return $respuesta;
 	
 	}
+
 	/*=============================================
-	EDITAR CATEGORIAS
+	EDITAR CATEGORIA
 	=============================================*/
 
 	static public function ctrEditarCategoria(){
@@ -144,7 +142,7 @@ class ControladorCategorias{
 		}
 
 	}
-	
+
 	/*=============================================
 	BORRAR CATEGORIA
 	=============================================*/
@@ -181,7 +179,3 @@ class ControladorCategorias{
 		
 	}
 }
-
-  
-
-
