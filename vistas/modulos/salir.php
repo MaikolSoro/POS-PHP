@@ -6,4 +6,5 @@ echo '<script>
 
 	window.location = "ingreso";
 
+	
 </script>';

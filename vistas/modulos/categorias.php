@@ -2,6 +2,7 @@
 
   <section class="content-header">
     
+    
     <h1>
       
       Administrar categorías
