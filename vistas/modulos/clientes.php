@@ -58,35 +58,56 @@
 
         <tbody>
           
-          <tr>
+        
+        <?php
 
-            <td>1</td>
+          $item = null;
+          $valor = null;
 
-            <td>Maikol Soro</td>
-            <td>207850963</td>
-            <td>maikolsoro.z1998@gmail.com</td>
-            <td>86223186</td>
-            <td> 800 mts Santa Rita de Rio Cuarto</td>
-            <td>1998-06-11</td>
-            <td>2019-09-05</td>
-            <td>35</td>
-            <td>2019-09-05 15:45:23</td>
+          $clientes = ControladorClientes::ctrMostrarClientes($item, $valor);
+
+          foreach ($clientes as $key => $value) {
             
 
-            <td>
+            echo '<tr>
 
-              <div class="btn-group">
-                  
-                <button class="btn btn-warning"><i class="fa fa-pencil"></i></button>
+                    <td>'.($key+1).'</td>
 
-                <button class="btn btn-danger"><i class="fa fa-times"></i></button>
+                    <td>'.$value["nombre"].'</td>
 
-              </div>  
+                    <td>'.$value["cedula"].'</td>
 
-            </td>
+                    <td>'.$value["email"].'</td>
 
-          </tr>
+                    <td>'.$value["telefono"].'</td>
 
+                    <td>'.$value["direccion"].'</td>
+
+                    <td>'.$value["fecha_nacimiento"].'</td>             
+
+                    <td>'.$value["compras"].'</td>
+
+                    <td>0000-00-00 00:00:00</td>
+
+                    <td>'.$value["fecha"].'</td>
+
+                    <td>
+
+                      <div class="btn-group">
+                          
+                        <button class="btn btn-warning btnEditarCliente" data-toggle="modal" data-target="#modalEditarCliente" idCliente="'.$value["id"].'"><i class="fa fa-pencil"></i></button>
+
+                        <button class="btn btn-danger btnEliminarCliente" idCliente="'.$value["id"].'"><i class="fa fa-times"></i></button>
+
+                      </div>  
+
+                    </td>
+
+                  </tr>';
+          
+            }
+
+        ?>
           
 
         </tbody>
@@ -155,7 +176,7 @@ MODAL Formulario AGREGAR Cliente
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="number" min ="0" class="form-control input-lg" name="nuevacedula" placeholder="Ingresa la cedula" required>
+                <input type="number" min ="0" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresa la cedula" required>
 
               </div>
 

@@ -3,7 +3,7 @@ require_once "conexion.php";
 
 class ModeloClientes{
 
-/*=============================================
+   /*=============================================
 	CREAR CLIENTE
     =============================================*/
     
@@ -19,7 +19,7 @@ class ModeloClientes{
         $stmt->bindParam(":fecha_nacimiento", $datos["fecha_nacimiento"], PDO::PARAM_STR);
 
 
-        if ($stmt->excute()) {
+        if ($stmt->execute()) {
             return "ok";
         }else{
 
@@ -30,5 +30,32 @@ class ModeloClientes{
         $stmt = null;
     }
 
+    /*=============================================
+	Mostrar CLIENTE
+    =============================================*/
 
+
+    static public function mdlMostrarClientes($tabla,$item,$valor){
+
+        if ($item!= null) {
+            $stmt = Conexion::conectar()->prepare("SELECT* FROM $tabla WHERE $item=:$item");
+            $smt->bindParam(":".$item,$valor,PDO::PARAM_STR);
+            $smt-> excute();
+            return $smt-> fetch();
+        }else{
+
+
+            $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla");
+
+			$stmt -> execute();
+
+			return $stmt -> fetchAll();
+
+		}
+
+		$stmt -> close();
+
+		$stmt = null;
+
+	}
 }
