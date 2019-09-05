@@ -139,7 +139,7 @@ MODAL Formulario AGREGAR Cliente
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-user"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevoCliente" placeholder="Ingresar nombre" required>
 
@@ -153,7 +153,7 @@ MODAL Formulario AGREGAR Cliente
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
                 <input type="number" min ="0" class="form-control input-lg" name="nuevacedula" placeholder="Ingresa la cedula" required>
 
@@ -167,7 +167,7 @@ MODAL Formulario AGREGAR Cliente
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
 
                 <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar  email" required>
 
@@ -181,7 +181,7 @@ MODAL Formulario AGREGAR Cliente
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
                 <input type="text"  class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono"  data-inputmask="'mask':'(999) 999-99999'" data-mask required>
 
@@ -194,7 +194,7 @@ MODAL Formulario AGREGAR Cliente
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
                 <input type="text"  class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Dirección" required>
 
@@ -208,7 +208,7 @@ MODAL Formulario AGREGAR Cliente
               
               <div class="input-group">
               
-                <span class="input-group-addon"><i class="fa fa-th"></i></span> 
+                <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
                 <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias':'yyyy/mm/dd'" data-mask required>
 
@@ -233,6 +233,13 @@ MODAL Formulario AGREGAR Cliente
         </div>
 
       </form>
+
+      <?php
+        
+        $crearCliente = new ControladorClientes();
+        $crearCliente -> ctrCrearCliente();
+
+      ?>
 
     </div>
 
