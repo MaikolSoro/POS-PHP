@@ -85,6 +85,20 @@ class ControladorClientes{
 
 		return $respuesta;
 
-	}
+    }
+    
+     /*=============================================
+	EDITAR CLIENTES
+	=============================================*/
+
+	static public function ctreEditarClientes($item, $valor){
+
+		$tabla = "clientes";
+
+		$respuesta = ModeloClientes::mdlEditarClientes($tabla, $item, $valor);
+
+		return $respuesta;
+
+    }
 }
                
