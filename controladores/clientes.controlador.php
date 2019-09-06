@@ -88,17 +88,77 @@ class ControladorClientes{
     }
     
      /*=============================================
-	EDITAR CLIENTES
+	EDITAR CLIENTE
 	=============================================*/
 
-	static public function ctreEditarClientes($item, $valor){
+	static public function ctrEditarCliente(){
 
-		$tabla = "clientes";
+		if(isset($_POST["editarCliente"])){
 
-		$respuesta = ModeloClientes::mdlEditarClientes($tabla, $item, $valor);
+			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editarCliente"]) &&
+			   preg_match('/^[0-9]+$/', $_POST["editarCedula"]) &&
+			   preg_match('/^[^0-9][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[@][a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{2,4}$/', $_POST["editarEmail"]) && 
+			   preg_match('/^[()\-0-9 ]+$/', $_POST["editarTelefono"]) && 
+			   preg_match('/^[#\.\-a-zA-Z0-9 ]+$/', $_POST["editarDireccion"])){
 
-		return $respuesta;
+			   	$tabla = "clientes";
 
-    }
+			   	$datos = array("id"=>$_POST["idCliente"],
+			   				   "nombre"=>$_POST["editarCliente"],
+					           "cedula"=>$_POST["editarCedula"],
+					           "email"=>$_POST["editarEmail"],
+					           "telefono"=>$_POST["editarTelefono"],
+					           "direccion"=>$_POST["editarDireccion"],
+					           "fecha_nacimiento"=>$_POST["editarFechaNacimiento"]);
+
+			   	$respuesta = ModeloClientes::mdlEditarCliente($tabla, $datos);
+
+			   	if($respuesta == "ok"){
+
+					echo'<script>
+
+					swal({
+						  type: "success",
+						  title: "El cliente ha sido cambiado correctamente",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+									if (result.value) {
+
+									window.location = "clientes";
+
+									}
+								})
+
+					</script>';
+
+				}
+
+			}else{
+
+				echo'<script>
+
+					swal({
+						  type: "error",
+						  title: "¡El cliente no puede ir vacío o llevar caracteres especiales!",
+						  showConfirmButton: true,
+						  confirmButtonText: "Cerrar"
+						  }).then(function(result){
+							if (result.value) {
+
+							window.location = "clientes";
+
+							}
+						})
+
+			  	</script>';
+
+
+
+			}
+
+		}
+
+	}
 }
                
