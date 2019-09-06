@@ -415,4 +415,10 @@ MODAL Formulario EDITAR Cliente
 
 </div>
 
+<?php
+
+  $eliminarCliente = new ControladorClientes();
+  $eliminarCliente -> ctrEliminarCliente();
+
+?>
 
