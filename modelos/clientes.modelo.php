@@ -65,10 +65,11 @@ class ModeloClientes{
 	EDITAR CLIENTE
     =============================================*/
     
-    static public function mdlEditarCliente($tabla,$datos){
+    static public function mdlEditarCliente($tabla, $datos){
 
 		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre = :nombre, cedula = :cedula, email = :email, telefono = :telefono, direccion = :direccion, fecha_nacimiento = :fecha_nacimiento WHERE id = :id");
 
+        $stmt->bindParam(":id", $datos["id"], PDO::PARAM_INT);
         $stmt->bindParam(":nombre", $datos["nombre"], PDO::PARAM_STR);
         $stmt->bindParam(":cedula", $datos["cedula"], PDO::PARAM_STR);
         $stmt->bindParam(":email", $datos["email"], PDO::PARAM_STR);
@@ -78,7 +79,9 @@ class ModeloClientes{
 
 
         if ($stmt->execute()) {
+
             return "ok";
+
         }else{
 
             return "error";
