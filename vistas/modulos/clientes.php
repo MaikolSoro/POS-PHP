@@ -26,7 +26,7 @@
   
         <button class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarCliente">
           
-          Agregar clientes
+          Agregar cliente
 
         </button>
 
@@ -34,7 +34,7 @@
 
       <div class="box-body">
         
-       <table class="table table-bordered table-striped dt-responsive tablas">
+       <table class="table table-bordered table-striped dt-responsive tablas" width="100%">
          
         <thead>
          
@@ -46,7 +46,7 @@
            <th>Email</th>
            <th>Teléfono</th>
            <th>Dirección</th>
-           <th>Fecha nacimiento</th>
+           <th>Fecha nacimiento</th> 
            <th>Total compras</th>
            <th>Última compra</th>
            <th>Ingreso al sistema</th>
@@ -57,8 +57,7 @@
         </thead>
 
         <tbody>
-          
-        
+
         <?php
 
           $item = null;
@@ -108,8 +107,7 @@
             }
 
         ?>
-          
-
+   
         </tbody>
 
        </table>
@@ -123,7 +121,7 @@
 </div>
 
 <!--=====================================
-MODAL Formulario AGREGAR Cliente
+MODAL AGREGAR CLIENTE
 ======================================-->
 
 <div id="modalAgregarCliente" class="modal fade" role="dialog">
@@ -147,7 +145,7 @@ MODAL Formulario AGREGAR Cliente
         </div>
 
         <!--=====================================
-        CUERPO DEL MODAL O LA VENTANA DE REGISTRO
+        CUERPO DEL MODAL
         ======================================-->
 
         <div class="modal-body">
@@ -167,76 +165,77 @@ MODAL Formulario AGREGAR Cliente
               </div>
 
             </div>
-  
-             <!-- ENTRADA PARA LA CEDULA -->
+
+            <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="number" min ="0" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresa la cedula" required>
+                <input type="number" min="0" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar Cedula" required>
 
               </div>
 
             </div>
 
-             <!-- ENTRADA PARA EL EMAIL -->
+            <!-- ENTRADA PARA EL EMAIL -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span> 
 
-                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar  email" required>
+                <input type="email" class="form-control input-lg" name="nuevoEmail" placeholder="Ingresar email" required>
 
               </div>
 
             </div>
 
-               <!-- ENTRADA PARA EL TELEFONO -->
+            <!-- ENTRADA PARA EL TELÉFONO -->
             
-               <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
-                <input type="text"  class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono"  data-inputmask="'mask':'(999) 999-99999'" data-mask required>
+                <input type="text" class="form-control input-lg" name="nuevoTelefono" placeholder="Ingresar teléfono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 
             </div>
-             <!-- ENTRADA PARA LA DIRECCIÓN -->
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text"  class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar Dirección" required>
+                <input type="text" class="form-control input-lg" name="nuevaDireccion" placeholder="Ingresar dirección" required>
 
               </div>
 
             </div>
 
-             <!-- ENTRADA PARA LA FECHA NACIMIENTO-->
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias':'yyyy/mm/dd'" data-mask required>
+                <input type="text" class="form-control input-lg" name="nuevaFechaNacimiento" placeholder="Ingresar fecha nacimiento" data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 
             </div>
-
+  
           </div>
 
         </div>
@@ -256,7 +255,7 @@ MODAL Formulario AGREGAR Cliente
       </form>
 
       <?php
-        
+
         $crearCliente = new ControladorClientes();
         $crearCliente -> ctrCrearCliente();
 
@@ -269,7 +268,7 @@ MODAL Formulario AGREGAR Cliente
 </div>
 
 <!--=====================================
-MODAL Formulario EDITAR Cliente
+MODAL EDITAR CLIENTE
 ======================================-->
 
 <div id="modalEditarCliente" class="modal fade" role="dialog">
@@ -293,7 +292,7 @@ MODAL Formulario EDITAR Cliente
         </div>
 
         <!--=====================================
-        CUERPO DEL MODAL O LA VENTANA DE REGISTRO
+        CUERPO DEL MODAL
         ======================================-->
 
         <div class="modal-body">
@@ -310,28 +309,27 @@ MODAL Formulario EDITAR Cliente
 
                 <input type="text" class="form-control input-lg" name="editarCliente" id="editarCliente" required>
                 <input type="hidden" id="idCliente" name="idCliente">
-
               </div>
 
             </div>
-  
-             <!-- ENTRADA PARA LA CEDULA -->
+
+            <!-- ENTRADA PARA EL DOCUMENTO ID -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="number" min ="0" class="form-control input-lg" name="editarCedula" id="editarCedula" required>
+                <input type="number" min="0" class="form-control input-lg" name="editarCedula" id="editarCedula" required>
 
               </div>
 
             </div>
 
-             <!-- ENTRADA PARA EL EMAIL -->
+            <!-- ENTRADA PARA EL EMAIL -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
@@ -343,47 +341,48 @@ MODAL Formulario EDITAR Cliente
 
             </div>
 
-               <!-- ENTRADA PARA EL TELEFONO -->
+            <!-- ENTRADA PARA EL TELÉFONO -->
             
-               <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-phone"></i></span> 
 
-                <input type="text"  class="form-control input-lg" name="editarTelefono"  id="editarTelefono"  data-inputmask="'mask':'(999) 999-99999'" data-mask required>
+                <input type="text" class="form-control input-lg" name="editarTelefono" id="editarTelefono" data-inputmask="'mask':'(999) 999-9999'" data-mask required>
 
               </div>
 
             </div>
-             <!-- ENTRADA PARA LA DIRECCIÓN -->
+
+            <!-- ENTRADA PARA LA DIRECCIÓN -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-map-marker"></i></span> 
 
-                <input type="text"  class="form-control input-lg" name="editarDireccion"  id="editarDireccion" required>
+                <input type="text" class="form-control input-lg" name="editarDireccion" id="editarDireccion"  required>
 
               </div>
 
             </div>
 
-             <!-- ENTRADA PARA LA FECHA NACIMIENTO-->
+             <!-- ENTRADA PARA LA FECHA DE NACIMIENTO -->
             
-             <div class="form-group">
+            <div class="form-group">
               
               <div class="input-group">
               
                 <span class="input-group-addon"><i class="fa fa-calendar"></i></span> 
 
-                <input type="text" class="form-control input-lg" name="editarFechaNacimiento"  id="editarFechaNacimiento" data-inputmask="'alias':'yyyy/mm/dd'" data-mask required>
+                <input type="text" class="form-control input-lg" name="editarFechaNacimiento" id="editarFechaNacimiento"  data-inputmask="'alias': 'yyyy/mm/dd'" data-mask required>
 
               </div>
 
             </div>
-
+  
           </div>
 
         </div>
@@ -403,11 +402,13 @@ MODAL Formulario EDITAR Cliente
       </form>
 
       <?php
-        
+
         $editarCliente = new ControladorClientes();
         $editarCliente -> ctrEditarCliente();
 
       ?>
+
+    
 
     </div>
 
@@ -421,4 +422,5 @@ MODAL Formulario EDITAR Cliente
   $eliminarCliente -> ctrEliminarCliente();
 
 ?>
+
 
