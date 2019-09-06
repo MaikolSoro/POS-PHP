@@ -252,7 +252,7 @@
 
                 </div>
 
-                <br>
+                <br> <!-- salto de linea --->
       
               </div>
 
