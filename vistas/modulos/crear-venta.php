@@ -365,7 +365,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL DOCUMENTO ID -->
+            <!-- ENTRADA PARA LA CEDULA -->
             
             <div class="form-group">
               

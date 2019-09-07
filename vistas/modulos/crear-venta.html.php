@@ -361,7 +361,7 @@ MODAL AGREGAR CLIENTE
 
             </div>
 
-            <!-- ENTRADA PARA EL DOCUMENTO ID -->
+            <!-- ENTRADA PARA LA CEDULA -->
             
             <div class="form-group">
               
@@ -369,7 +369,7 @@ MODAL AGREGAR CLIENTE
               
                 <span class="input-group-addon"><i class="fa fa-key"></i></span> 
 
-                <input type="number" min="0" class="form-control input-lg" name="nuevoDocumentoId" placeholder="Ingresar documento" required>
+                <input type="number" min="0" class="form-control input-lg" name="nuevaCedula" placeholder="Ingresar cedula" required>
 
               </div>
 
